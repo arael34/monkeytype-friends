@@ -1,0 +1,14 @@
+.header {
+    z-index: 2;
+    padding: 0px;
+    margin-bottom: 10px;
+    min-height: 40px;
+    background-color: navy;
+}
+
+.headerLinks {
+    color: whitesmoke;
+    text-decoration: none;
+    margin-right: 60px;
+    font-size: x-large;
+}
