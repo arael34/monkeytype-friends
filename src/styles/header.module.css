@@ -1,8 +1,8 @@
 .header {
     z-index: 2;
-    padding: 0px;
+    padding: 15px;
     margin-bottom: 10px;
-    min-height: 40px;
+    min-height: 30px;
     background-color: navy;
 }
 
@@ -11,4 +11,9 @@
     text-decoration: none;
     margin-right: 60px;
     font-size: x-large;
+}
+
+.headerContainer {
+    width: 50%;
+    display: inline-block;
 }

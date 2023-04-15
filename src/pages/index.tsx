@@ -4,9 +4,9 @@ function Home() {
   const [currentTab, setCurrentTab] = useState<number>(0);
 
   const TABS = [
-    "Top Scorers",
-    "Incoming Friend Requests",
-    "Add Friend"
+    "top scorers",
+    "incoming friend requests",
+    "add friend"
   ];
 
   return (
@@ -25,13 +25,15 @@ function Home() {
       </div>
       <div>
         {currentTab === 0 ? (
-          <p>Top Scorers: Top 30sec: ur mom</p>
+          <p>top scorers: top 30sec: ur mom</p>
         ): currentTab === 1 ? (
-          <p>Incoming Friend Requests whatever.map</p>
+          <div>
+            <p>incoming friend requests whatever.map</p>
+            <p>also outgoing friend reqs</p>
+          </div>
         ) : (
           <p>add friend, there should be a search box here</p>
         )}
-        
       </div>
     </div>
   );

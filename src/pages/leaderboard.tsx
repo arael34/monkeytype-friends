@@ -5,7 +5,7 @@ function Leaderboard() {
 
     return (
         <div>
-            <h1>Leaderboard</h1>
+            <h1>leaderboard</h1>
             <span>
                 <p>3: you suck</p>
                 <p>1: ur mom</p>
@@ -14,7 +14,7 @@ function Leaderboard() {
             { friends.map((profile: string, index: number) => {
                 return (
                     <Link key={index} href={profile}>
-                        Your Profile
+                        your profile
                     </Link>
                 );
             }) }
