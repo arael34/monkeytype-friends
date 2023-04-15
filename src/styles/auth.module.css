@@ -1,0 +1,13 @@
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 25vw;
+}
+
+.inputGroup input {
+    float: right;
+    border: none;
+    background-color: #181926;
+    color: antiquewhite;
+}

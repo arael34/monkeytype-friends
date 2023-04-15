@@ -7,8 +7,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 36, 39, 58;
+    --background-end-rgb: 36, 39, 58;
   }
 }
 
@@ -29,6 +29,24 @@ header {
 
 button {
   border: none;
-  background: none;
-  color: blue;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: transparent;
+  color: #a5adcb;
+}
+
+button:hover{
+  color: #cad3f5;
+}
+
+label {
+  display: block;
+}
+
+p {
+  color: #cad3f5;
+}
+
+h1 {
+  color: #cad3f5;
 }

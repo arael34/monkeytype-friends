@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "@/styles/index.module.css";
 
 function Home() {
   const [currentTab, setCurrentTab] = useState<number>(0);
@@ -11,12 +12,13 @@ function Home() {
 
   return (
     <div>
-      <div>
+      <div className={styles.buttonContainer}>
         {TABS.map((tab: string, i: number) => {
           return (
             <button
               key={i}
               onClick={()=>setCurrentTab(i)}
+              style={{ color: currentTab === i ? "#a6da95" : "inherit"}}
             >
               {tab}
             </button>

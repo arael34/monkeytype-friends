@@ -3,11 +3,11 @@
     padding: 15px;
     margin-bottom: 10px;
     min-height: 30px;
-    background-color: navy;
+    background-color: #181926;
 }
 
 .headerLinks {
-    color: whitesmoke;
+    color: #cad3f5;
     text-decoration: none;
     margin-right: 60px;
     font-size: x-large;

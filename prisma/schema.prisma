@@ -14,5 +14,6 @@ model User {
   id       Int    @id @default(autoincrement())
   email    String @unique
   username String @unique
-  // friends  User[] ?
+  friends  User[] @relation("Friendship")
+  friendOf User[] @relation("Friendship")
 }
