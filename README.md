@@ -2,5 +2,6 @@
 an app to compete with your friends on monkeytype :)
 
 ## todo
-figure out API, backend, and model
-oh and auth
+error handling in api calls
+figure backend, and model, might have to add a
+outgoingfriendrequests and incomingrequests field
