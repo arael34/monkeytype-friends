@@ -16,7 +16,7 @@ export async function getServerSideProps(
         console.error("Error! User data is null!");
         return { props: null };
     } else {
-        res.writeHead(302, { Location: "/login" });
+        res.writeHead(302, { Location: "/auth/login" });
         res.end();
 
     // `as never` prevents inference issues
