@@ -1,11 +1,30 @@
+import { getServerSession } from "next-auth";
+import { NextApiRequest, NextApiResponse } from "next";
 import fetchProfile from "@/monkeytype/fetchProfile";
 import { ProfileInfo } from "@/monkeytype/profileInfo";
+import authOptions from "./[...nextauth]";
 
-export async function getServerSideProps() {
-    // this will need to use auth
-    const data = await fetchProfile("noise3");
-    if (!data) return { props: null };
-    return { props: data };
+export async function getServerSideProps(
+    req: NextApiRequest,
+    res: NextApiResponse,
+) {
+    const session = await getServerSession(req, res, authOptions)
+
+    if (session) {
+        const data = await fetchProfile("");
+        if (data) return { props: data };
+        console.error("Error! User data is null!");
+        return { props: null };
+    } else {
+        res.writeHead(302, { Location: "/login" });
+        res.end();
+
+    // `as never` prevents inference issues
+    // with InferGetServerSidePropsType.
+    // The props returned here don't matter because we've
+    // already redirected the user.
+    return { props: {} as never };
+    }
 }
 
 function Profile(props: ProfileInfo) {

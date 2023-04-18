@@ -29,14 +29,14 @@ header {
 
 button {
   border: none;
-  border-radius: 5px;
-  margin: 5px;
+  padding: 8px;
   background-color: transparent;
   color: #a5adcb;
 }
 
 button:hover{
-  color: #cad3f5;
+  color: #cad3f5 !important;
+  cursor: pointer;
 }
 
 label {

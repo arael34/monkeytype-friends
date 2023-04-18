@@ -1,3 +1,4 @@
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import styles from "@/styles/auth.module.css";
 
@@ -5,6 +6,11 @@ function Signup() {
     return (
         <div>
             <p>sign up</p>
+
+            <div>
+                <button onClick={()=>signIn()}>sign in</button>
+            </div>
+
             <div className={styles.inputGroup}>
                 <label>
                     email
