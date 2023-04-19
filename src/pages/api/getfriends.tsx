@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
+import { getFriends } from "@/backend/read";
+import { BackendResult } from "@/util/types";
 
 async function GetFriends(
     req: NextApiRequest,
@@ -9,22 +10,18 @@ async function GetFriends(
         // extract id from json body
         // could also use next-auth session?
         const { id } = JSON.parse(req.body);
+        const [result, friends] = await getFriends(id);
 
-        // get user -> friends field
-        const prisma = new PrismaClient();
-        const friends = await prisma.user.findUnique({
-            where: { id: id },
-            select: { friends: true },
-        });
-
-        if (friends) {
-            res.status(200).json(friends.friends);
-        } else {
-            res.status(500);
+        switch (result) {
+            case BackendResult.Success:
+                res.status(200).json({ friends: friends});
+                return;
+            case BackendResult.DatabaseError:
+                res.status(500).end();
+                return;
         }
-        return;
     }
-    res.status(405);
+    res.status(405).end();
 }
 
 export default GetFriends;

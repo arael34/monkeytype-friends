@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
 import { NextApiRequest, NextApiResponse } from "next";
-import fetchProfile from "@/monkeytype/fetchProfile";
-import { ProfileInfo } from "@/monkeytype/profileInfo";
+import fetchProfile from "@/util/fetchProfile";
 import authOptions from "./[...nextauth]";
+import type { ProfileInfo } from "@/util/types";
 
 export async function getServerSideProps(
     req: NextApiRequest,

@@ -1,33 +1,29 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PrismaClient } from "@prisma/client";
+import { addFriend } from "@/backend/write";
+import { BackendResult } from "@/util/types";
 
-async function AddFriend(
+async function _addFriend(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
     if (req.method === "POST") {
         // extract id from json body
         const { id, friendId } = JSON.parse(req.body);
+        const result: BackendResult = await addFriend(id, friendId);
 
-        try {
-            const prisma = new PrismaClient();
-            // TODO
-            // if user already has an existing friend request out,
-            // or is friends w the user, return an error and handle
-
-            await prisma.user.update({
-                where: { id: id },
-                data: {
-                    friends: { connect: { id: friendId } },
-                },
-            });
-            res.status(200).end();
-        } catch {
-            res.status(500).end();
+        switch (result) {
+            case BackendResult.Success:
+                res.status(200).end();
+                return;
+            case BackendResult.DatabaseError:
+                res.status(500).end();
+                return;
+            case BackendResult.AddExistingFriend | BackendResult.AddExistingRequest:
+                res.status(400).end();
+                return;
         }
-        return;
     }
     res.status(405).end();
 }
 
-export default AddFriend;
+export default _addFriend;

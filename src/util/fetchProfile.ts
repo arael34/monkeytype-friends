@@ -1,8 +1,8 @@
-import { baseUrl, ProfileInfo } from "./profileInfo";
+import type { ProfileInfo } from "./types";
 import config from "@/../.config.json";
 
 async function fetchProfile(uid: string): Promise<ProfileInfo | null> {
-    const url = `${baseUrl}/users/${uid}/profile`;
+    const url = `https://api.monkeytype.com/users/${uid}/profile`;
     const requestOptions = {
         method: "GET",
         Accept: "application/json",

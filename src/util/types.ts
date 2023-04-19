@@ -1,4 +1,11 @@
-const baseUrl: string = "https://api.monkeytype.com";
+export enum BackendResult {
+    Success,
+
+    RemoveStranger,
+    AddExistingFriend,
+    AddExistingRequest,
+    DatabaseError,
+}
 
 type PersonalBests = {
     _15: number,
@@ -7,17 +14,9 @@ type PersonalBests = {
     _120: number,
 };
 
-type ProfileInfo = {
+export type ProfileInfo = {
     name: string,
     completedTests: number,
     timeTyping: number,
     personalBests: PersonalBests,
-};
-
-export type {
-    ProfileInfo
-};
-
-export {
-    baseUrl
 };
