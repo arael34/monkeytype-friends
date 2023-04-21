@@ -11,7 +11,9 @@ export async function getServerSideProps(
     const session = await getServerSession(req, res, authOptions)
 
     if (session) {
-        const data = await fetchProfile("");
+        // TODO: get userId from session
+        const uid = "";
+        const data = await fetchProfile(uid);
         if (data) return { props: data };
         console.error("Error! User data is null!");
         return { props: null };
